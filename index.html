@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吳秉峰 Woody | 賦能企業，改變茁壯 | 全鈦科技 × 曜嶼永續</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0B0F19',
+              slate: '#111827',
+              card: 'rgba(17, 24, 39, 0.75)',
+              emerald: '#10B981',
+              cyan: '#06B6D4',
+              teal: '#14B8A6',
+              amber: '#F59E0B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+          },
+          animation: {
+            'text-shimmer': 'textShimmer 4s ease-in-out infinite alternate',
+            'float-slow': 'floatSlow 7s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            textShimmer: {
+              '0%': { backgroundPosition: '0% 50%' },
+              '100%': { backgroundPosition: '100% 50%' },
+            },
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: 0.35, transform: 'scale(1)' },
+              '50%': { opacity: 0.75, transform: 'scale(1.08)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #059669;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .glass-nav {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    /* Specific CTA Button: Glass gradient border & Hover glowing "Ready to Connect" */
+    .cta-dynamic-btn {
+      position: relative;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid transparent;
+      border-image: linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(6, 182, 212, 0.6), rgba(255, 255, 255, 0.2)) 1;
+      border-radius: 9999px; /* Tailwind rounded-full equivalent in border-box */
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .cta-dynamic-btn-pill {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 9999px;
+      padding: 1px;
+      background-clip: padding-box;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cta-dynamic-btn-pill::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -1.5px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #10B981, #06B6D4, #3B82F6, rgba(255,255,255,0.4));
+      transition: opacity 0.3s ease;
+      opacity: 0.7;
+    }
+
+    .cta-dynamic-btn-pill:hover::before {
+      opacity: 1;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.6), 0 0 45px rgba(6, 182, 212, 0.4);
+    }
+
+    .cta-dynamic-btn-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Content toggle inside button */
+    .cta-label-default {
+      display: inline-flex;
+      align-items: center;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .cta-label-hover {
+      display: none;
+      align-items: center;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .cta-dynamic-btn-pill:hover .cta-label-default {
+      display: none;
+    }
+    .cta-dynamic-btn-pill:hover .cta-label-hover {
+      display: inline-flex;
+    }
+
+    /* Shimmering Gradient for Main Heading */
+    .hero-title-gradient {
+      background: linear-gradient(120deg, #FFFFFF 20%, #34D399 45%, #38BDF8 70%, #FFFFFF 95%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShimmer 6s linear infinite;
+    }
+
+    /* Subtle grid pattern background */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Soft reveal on scroll */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-[#0B0F19] text-slate-200 antialiased font-sans selection:bg-emerald-500 selection:text-white relative overflow-x-hidden">
+
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo / Brand Identity -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 p-0.5 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <div class="w-full h-full bg-gray-950 rounded-[10px] flex items-center justify-center font-bold text-lg text-emerald-400">
+              W
+            </div>
+          </div>
+          <div>
+            <div class="font-bold text-white tracking-wide flex items-center gap-2">
+              <span>吳秉峰</span>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Woody</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-medium">精密製造整合 ‧ 淨零永續顧問</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#about" class="text-slate-300 hover:text-emerald-400 transition-colors py-1">個人簡介</a>
+          <a href="#dual-role" class="text-slate-300 hover:text-emerald-400 transition-colors py-1">雙軸核心職涯</a>
+          <a href="#credentials" class="text-slate-300 hover:text-emerald-400 transition-colors py-1">專業證照與經歷</a>
+          <a href="#services" class="text-slate-300 hover:text-emerald-400 transition-colors py-1">服務領域</a>
+          <a href="#contact" class="text-slate-300 hover:text-emerald-400 transition-colors py-1">預約交流</a>
+        </nav>
+
+        <!-- Right Action Button -->
+        <div class="hidden sm:block">
+          <a href="https://calendar.app.google/DVue8NMERisdLjD86" target="_blank" rel="noopener noreferrer" class="cta-dynamic-btn-pill inline-block">
+            <div class="px-5 py-2.5 rounded-full bg-gray-900/90 text-sm font-semibold tracking-wide flex items-center gap-2 transition-all">
+              <span class="cta-label-default text-slate-100">
+                <i class="fa-regular fa-calendar-check text-emerald-400 mr-1.5"></i> 預約諮詢
+              </span>
+              <span class="cta-label-hover text-emerald-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span>
+                Status: Ready to Connect
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-gray-800/80 text-slate-300 hover:text-white border border-slate-700/60 focus:outline-none" aria-label="切換選單">
+          <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-slate-800/80 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-base font-medium">
+        <a href="#about" class="mobile-nav-link text-slate-300 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between">
+          <span>個人簡介</span>
+          <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
+        </a>
+        <a href="#dual-role" class="mobile-nav-link text-slate-300 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between">
+          <span>雙軸核心職涯</span>
+          <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
+        </a>
+        <a href="#credentials" class="mobile-nav-link text-slate-300 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between">
+          <span>專業證照與經歷</span>
+          <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
+        </a>
+        <a href="#services" class="mobile-nav-link text-slate-300 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between">
+          <span>專業賦能服務</span>
+          <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between">
+          <span>預約交流</span>
+          <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
+        </a>
+        <div class="pt-4 border-t border-slate-800">
+          <a href="https://calendar.app.google/DVue8NMERisdLjD86" target="_blank" rel="noopener noreferrer" class="cta-dynamic-btn-pill w-full block text-center">
+            <div class="px-5 py-3 rounded-full bg-gray-900/90 text-sm font-semibold tracking-wide flex items-center justify-center gap-2">
+              <span class="cta-label-default text-slate-100">
+                <i class="fa-regular fa-calendar-check text-emerald-400 mr-2"></i> 預約 1-on-1 諮詢
+              </span>
+              <span class="cta-label-hover text-emerald-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span>
+                Status: Ready to Connect
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-grid-pattern">
+    <!-- Ambient Dynamic Background Glows -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"></div>
+    <div class="absolute -top-10 -left-10 w-[420px] h-[420px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-0 w-[450px] h-[450px] bg-blue-600/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Text Info -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Mini Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-transparent border border-emerald-500/25 text-xs sm:text-sm font-medium text-emerald-300">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>製造實務 × 淨零治理 雙軌賦能</span>
+          </div>
+
+          <!-- Hero Main Title with Special Effect -->
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+              <span class="hero-title-gradient block pb-1">
+                賦能企業，改變茁壯
+              </span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 font-normal max-w-2xl mx-auto lg:mx-0 pt-2 leading-relaxed">
+              我是 <span class="text-white font-semibold underline decoration-emerald-500/60 decoration-2 underline-offset-4">吳秉峰 Woody</span>。以二十餘年跨領域高階商務與製造實務為基底，融合全球碳管理標準與 AI 賦能工具，引領企業從<span class="text-cyan-300 font-medium">精密塑膠產品開發</span>到<span class="text-emerald-300 font-medium">永續競爭力升級</span>。
+            </p>
+          </div>
+
+          <!-- Dual Roles Fast Switch Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 max-w-xl mx-auto lg:mx-0">
+            <div class="glass-panel p-3.5 rounded-2xl border border-slate-700/60 flex items-center gap-3.5 text-left">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 text-lg border border-cyan-500/20">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400">全鈦科技股份有限公司</p>
+                <p class="text-sm font-semibold text-white">業務副總 ‧ 精密加工開發</p>
+              </div>
+            </div>
+
+            <div class="glass-panel p-3.5 rounded-2xl border border-slate-700/60 flex items-center gap-3.5 text-left">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 text-lg border border-emerald-500/20">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400">曜嶼永續 / 艾恩永續中心</p>
+                <p class="text-sm font-semibold text-white">副總經理 ‧ 淨零組織賦能</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons Row -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="https://calendar.app.google/DVue8NMERisdLjD86" target="_blank" rel="noopener noreferrer" class="cta-dynamic-btn-pill">
+              <div class="px-7 py-3.5 rounded-full bg-slate-900/90 text-sm font-semibold tracking-wide flex items-center gap-2">
+                <span class="cta-label-default text-white">
+                  <i class="fa-solid fa-calendar-days text-emerald-400 mr-2 text-base"></i> 立即預約 1-on-1 諮詢
+                </span>
+                <span class="cta-label-hover text-emerald-300">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping mr-2"></span>
+                  Status: Ready to Connect
+                </span>
+              </div>
+            </a>
+
+            <a href="#dual-role" class="px-6 py-3.5 rounded-full glass-panel border border-slate-700 hover:border-slate-500 text-sm font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2 hover:bg-slate-800/60">
+              <span>探索專業服務領域</span>
+              <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Fast Highlights Counter -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 text-left max-w-xl mx-auto lg:mx-0">
+            <div>
+              <p class="text-2xl font-bold text-white tracking-tight">20+ <span class="text-xs text-emerald-400 font-normal">年</span></p>
+              <p class="text-xs text-slate-400 mt-0.5">跨領域業務管理實戰</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-white tracking-tight">12+ <span class="text-xs text-cyan-400 font-normal">張</span></p>
+              <p class="text-xs text-slate-400 mt-0.5">ISO 國際碳管理主導查證員</p>
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-white tracking-tight">360° <span class="text-xs text-teal-400 font-normal">賦能</span></p>
+              <p class="text-xs text-slate-400 mt-0.5">製造可行性到永續治理</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Portrait Visual -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Glow ring backdrop -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-75 transition duration-1000 animate-pulse-glow"></div>
+            
+            <!-- Photo Card Container -->
+            <div class="relative glass-panel rounded-3xl p-3 border border-slate-700/70 shadow-2xl overflow-hidden group">
+              <div class="aspect-square sm:aspect-[4/5] w-full rounded-2xl overflow-hidden bg-slate-900 relative">
+                <!-- Woody Photo: High-resolution direct streaming endpoint from Google Drive -->
+                <img 
+                  src="https://drive.google.com/thumbnail?id=1mnprnCNe83R4A2tLp8SHKXCv746noC8P&sz=w1000"
+                  alt="吳秉峰 Woody" 
+                  id="profile-img"
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105 filter brightness-100 contrast-105"
+                  onerror="handleImageError(this)"
+                />
+                
+                <!-- Bottom Gradient Shade -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+
+                <!-- Quick Photo Controls -->
+                <div class="absolute top-3 right-3 z-20 flex items-center gap-2">
+                  <label for="photo-file-input" class="px-3 py-1.5 rounded-xl bg-slate-900/85 hover:bg-emerald-600/90 border border-white/20 text-white text-xs font-medium cursor-pointer shadow-lg backdrop-blur-md transition-all flex items-center gap-1.5" title="選取電腦上的 Woody.jpg 立即套用">
+                    <i class="fa-solid fa-camera text-emerald-400"></i>
+                    <span>更換照片</span>
+                  </label>
+                  <button type="button" onclick="promptPhotoUrl()" class="px-2.5 py-1.5 rounded-xl bg-slate-900/85 hover:bg-cyan-600/90 border border-white/20 text-white text-xs font-medium shadow-lg backdrop-blur-md transition-all" title="輸入圖片網址">
+                    <i class="fa-solid fa-link text-cyan-400"></i>
+                  </button>
+                  <button type="button" id="btn-reset-photo" onclick="resetDefaultPhoto()" class="hidden px-2.5 py-1.5 rounded-xl bg-slate-900/85 hover:bg-red-600/80 border border-white/20 text-slate-300 hover:text-white text-xs font-medium shadow-lg backdrop-blur-md transition-all" title="重設為預設圖片">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </div>
+                <input type="file" id="photo-file-input" accept="image/*" class="hidden" onchange="handleUserPhotoUpload(event)" />
+
+                <!-- Floating Info Chip On Photo -->
+                <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl glass-panel border border-white/10 backdrop-blur-md z-10">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h3 class="text-base font-bold text-white">吳秉峰 (Woody)</h3>
+                      <p class="text-xs text-emerald-400 font-medium flex items-center gap-1.5 mt-0.5">
+                        <i class="fa-solid fa-shield-halved text-[11px]"></i> 永續查證師 ‧ 企業賦能顧問
+                      </p>
+                    </div>
+                    <div class="text-right">
+                      <span class="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        業界講師
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Mini Tag Badge 1 -->
+            <div class="absolute -top-4 -left-4 glass-panel px-4 py-2.5 rounded-2xl border border-emerald-500/30 shadow-xl hidden sm:flex items-center gap-2.5 animate-float-slow">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <i class="fa-solid fa-award text-sm"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] text-slate-400 leading-tight">ISO 14064 / 14067</p>
+                <p class="text-xs font-bold text-white">多項主導查證資格</p>
+              </div>
+            </div>
+
+            <!-- Floating Mini Tag Badge 2 -->
+            <div class="absolute -bottom-4 -right-4 glass-panel px-4 py-2.5 rounded-2xl border border-cyan-500/30 shadow-xl hidden sm:flex items-center gap-2.5" style="animation: floatSlow 8s ease-in-out infinite reverse;">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400">
+                <i class="fa-solid fa-brain text-sm"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] text-slate-400 leading-tight">AI & 專案賦能</p>
+                <p class="text-xs font-bold text-white">微軟 AI-901 / IPMA C</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 relative border-t border-slate-800/80 bg-slate-950/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-item">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+          ABOUT WOODY WU
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          跨界橋樑：從製造落地到永續實踐
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
+          不只是提供單一諮詢，而是透過跨領域整合、規格釐清與陪伴賦能，協助企業消除資訊落差，將複雜標準轉化為內部可自主延續的競爭實力。
+        </p>
+      </div>
+
+      <!-- Core Philosophies (3 Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 group reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">以終為始，需求釐清</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            深入產品應用情境與組織核心目標，從研發、採購到供應端建立透明語言，在源頭掌握品質、成本與交期平衡。
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 hover:-translate-y-1 group reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">賦能同仁，能力留存</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            拒絕一次性的代寫報告或形式主義。以實作演練與教練式陪伴，引導團隊理解數據本質，建構企業內部自主改善體系。
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-teal-500/40 transition-all duration-300 hover:-translate-y-1 group reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-teal-500/20 transition-all">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">科技輔助，高效落地</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            積極融合微軟 AI 工具與生成式應用，帶領團隊重構繁重盤查資料處理流，使知識管理與減碳執行更具效率與可靠度。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="dual-role" class="py-24 relative overflow-hidden">
+    <!-- Ambient backlights -->
+    <div class="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-item">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+          DUAL-PILLAR EXPERTISE
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          雙軸核心職涯與專業範疇
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          結合「先進機構製造實務」與「國際永續淨零治理」，打造硬實力與軟實力的全方位支撐
+        </p>
+      </div>
+
+      <!-- Two Large Side-by-Side Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Pillar 1: 全鈦科技 -->
+        <div class="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 hover:border-cyan-500/50 transition-all flex flex-col justify-between relative overflow-hidden group reveal-item">
+          <div class="absolute top-0 right-0 w-44 h-44 bg-cyan-500/10 rounded-bl-[100px] pointer-events-none transition-all duration-500 group-hover:scale-110"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                <i class="fa-solid fa-industry"></i> 業務副總經理
+              </span>
+              <a href="https://www.chtai.com.tw" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-1 font-mono">
+                <span>chtai.com.tw</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">全鈦科技</h3>
+            <p class="text-cyan-400 font-medium text-sm mb-6">塑膠產品開發 ‧ 精密加工整合服務</p>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              身為全鈦科技業務副總，我協助客戶整合產品開發與製造資源，以理解產品用途與應用情境為起點，透過需求釐清、規格討論及技術協作，協助客戶評估塑膠產品的開發方向與加工可行性，讓設計構想轉化為具體的執行方案。
+            </p>
+
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 text-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300"><strong class="text-white">產品開發與精密加工：</strong>平板 Lens、印刷強化、CNC 銑床加工、3D 模具加工等核心技術支援。</p>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 text-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300"><strong class="text-white">跨部門協同溝通：</strong>緊密銜接研發、採購與製造端，嚴格掌控品質、成本與交期，消弭開發資訊落差。</p>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 text-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300"><strong class="text-white">客戶賦能與方案評估：</strong>以業務管理經驗賦能客戶團隊，累積可延續的開發方法，穩健拓展市場。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-400">研發 / 採購 / 加工製造資源對接</span>
+            <a href="https://www.chtai.com.tw" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+              前往全鈦官方網站 <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 2: 曜嶼永續 / 艾恩永續中心 -->
+        <div class="glass-panel rounded-3xl p-8 sm:p-10 border border-slate-800 hover:border-emerald-500/50 transition-all flex flex-col justify-between relative overflow-hidden group reveal-item">
+          <div class="absolute top-0 right-0 w-44 h-44 bg-emerald-500/10 rounded-bl-[100px] pointer-events-none transition-all duration-500 group-hover:scale-110"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                <i class="fa-solid fa-earth-asia"></i> 副總經理 ‧ 查證顧問
+              </span>
+              <span class="text-xs font-mono text-slate-400">曜嶼永續 / 艾恩永續中心</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">曜嶼永續</h3>
+            <a href="https://www.anesg.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 hover:underline mb-3">
+              www.anesg.com <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+            </a>
+            <p class="text-emerald-400 font-medium text-sm mb-6">永續管理 ‧ 組織能力建構 ‧ 淨零顧問</p>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              身為曜嶼永續副總經理，我結合永續標準、企業輔導與教學經驗，協助組織建立推動淨零與永續管理的實務能力。輔導從企業現況與客戶要求出發，建立資料蒐集流程，將專業標準轉化為可執行的管理方法。
+            </p>
+
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300"><strong class="text-white">盤查與報告書編製：</strong>組織溫室氣體盤查 (ISO 14064)、產品碳足跡 (ISO 14067)、AA1000 永續報告書揭露。</p>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300"><strong class="text-white">教練式陪伴與人才培育：</strong>實作演練、內部講師培力、iPAS 淨零碳規劃認證輔導，讓永續深植於日常營運。</p>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300"><strong class="text-white">AI 應用與效率突破：</strong>結合 AI 工具進行資料整理與知識管理，助團隊提升應對供應鏈查核之可信度。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-400">標準查證準備 / 永續人才內訓</span>
+            <a href="https://calendar.app.google/DVue8NMERisdLjD86" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5">
+              立即預約永續診斷 <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="credentials" class="py-24 bg-slate-950/60 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-item">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+          CREDENTIALS & BACKGROUND
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          完整經歷與專業證照體系
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          橫跨管理歷練、政府補助輔導、大學教研與國際頂尖永續標準主導查證資質
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: Certification Badges Grid (7 cols) -->
+        <div class="lg:col-span-7 space-y-6 reveal-item">
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800">
+            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-certificate"></i>
+              </span>
+              <span>永續、碳管理與國際標準認證</span>
+            </h3>
+
+            <!-- Certs Tag Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">ISO 14064-1/-3 碳盤查主導查證員</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">ISO 14064-2 專案層級主導查證員</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">ISO 14067 碳足跡主導查證員</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">ISO 14068-1 碳中和主任查證員</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">ISO 50001 能源管理主導稽核員</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">ISO 14001 / ISO 14019 主導查證師</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">AA1000 ACSAP 永續報告書查證師 / 講師</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">歐盟 CBAM 主導查證員</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">iPAS 淨零碳規劃管理師 (初級 / 中級)</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex items-center gap-2.5">
+                <i class="fa-regular fa-circle-check text-emerald-400"></i>
+                <span class="text-slate-200">TCSA 臺灣企業永續獎志工評審員</span>
+              </div>
+            </div>
+
+            <!-- AI and Project Management Section -->
+            <div class="mt-6 pt-6 border-t border-slate-800">
+              <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">AI 科技與專案管理資質</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                <div class="p-2.5 rounded-lg bg-cyan-950/30 border border-cyan-800/40 text-cyan-200 flex items-center gap-2">
+                  <i class="fa-brands fa-microsoft"></i>
+                  <span>Microsoft AI-900 / AI-901</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-cyan-950/30 border border-cyan-800/40 text-cyan-200 flex items-center gap-2">
+                  <i class="fa-solid fa-robot"></i>
+                  <span>ITS AI / 生成式 AI 認證</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-cyan-950/30 border border-cyan-800/40 text-cyan-200 flex items-center gap-2">
+                  <i class="fa-solid fa-diagram-project"></i>
+                  <span>IPMA Level C 專案管理師</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Academic Background -->
+          <div class="glass-panel p-5 rounded-2xl border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-300">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400">學歷背景</p>
+                <p class="text-sm font-semibold text-white">中國醫藥大學 醫事技術系</p>
+              </div>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-400 border border-slate-700">科學邏輯基礎</span>
+          </div>
+        </div>
+
+        <!-- Right: Career Timeline & Associations (5 cols) -->
+        <div class="lg:col-span-5 space-y-6 reveal-item">
+          
+          <!-- Career & Teaching Experience -->
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800">
+            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-briefcase"></i>
+              </span>
+              <span>高階管理歷練與教學顧問</span>
+            </h3>
+
+            <div class="relative pl-6 space-y-6 border-l-2 border-slate-800">
+              
+              <!-- Timeline Item 1 -->
+              <div class="relative group">
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-4 ring-slate-900"></div>
+                <span class="text-xs font-semibold text-emerald-400">現任核心要職</span>
+                <p class="text-sm font-bold text-white mt-0.5">全鈦科技股份有限公司 業務部副總</p>
+                <p class="text-xs text-slate-400">艾恩永續中心 / 曜嶼永續 副總經理</p>
+              </div>
+
+              <!-- Timeline Item 2 -->
+              <div class="relative group">
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-cyan-500 ring-4 ring-slate-900"></div>
+                <span class="text-xs font-semibold text-cyan-400">教學與顧問指導</span>
+                <p class="text-sm font-bold text-white mt-0.5">中原大學會計系 業界講師</p>
+                <p class="text-xs text-slate-400">政府補助輔導 輔導顧問</p>
+                <p class="text-xs text-slate-400 mt-0.5">GHG Protocol / AA1000 / iPAS 專任講師</p>
+              </div>
+
+              <!-- Timeline Item 3 -->
+              <div class="relative group">
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-600 ring-4 ring-slate-900"></div>
+                <span class="text-xs font-semibold text-slate-400">高階商務管理經歷</span>
+                <p class="text-sm font-semibold text-slate-200 mt-0.5">豐新國際科技股份有限公司 業務部副總</p>
+                <p class="text-xs text-slate-400">光國電子科技股份有限公司 副總經理</p>
+                <p class="text-xs text-slate-400">南京瑞彬 / 君和紡織股份有限公司 副總</p>
+                <p class="text-xs text-slate-400">康網科技有限公司 MIS 經理</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Associations / Public Roles -->
+          <div class="glass-panel p-6 rounded-3xl border border-slate-800">
+            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">公協會要職與社會責任</h4>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <div class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-900/60">
+                <i class="fa-solid fa-building-columns text-emerald-400"></i>
+                <span>中華三創菁英協會 永續服務委員會 <strong>副執行長</strong></span>
+              </div>
+              <div class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-900/60">
+                <i class="fa-solid fa-users-gear text-emerald-400"></i>
+                <span>中華環境安全永續協會 <strong>監事</strong></span>
+              </div>
+              <div class="flex items-center gap-2.5 p-2 rounded-lg bg-slate-900/60">
+                <i class="fa-solid fa-chart-line text-emerald-400"></i>
+                <span>中華碳管理顧問協會 <strong>理事</strong></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-item">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+          COMPREHENSIVE SERVICES
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          全方位企業賦能矩陣
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          從硬體精密研發到國際永續標準查證，提供務實、精確且可自主延續的解決方案
+        </p>
+      </div>
+
+      <!-- Service Matrix Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- S1 -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between group reveal-item">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-gears"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">塑膠產品與精密加工</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              平板 Lens、印刷強化、CNC 銑床加工及 3D 模具開發。協助研發與製造端無縫溝通，掌握品質、成本及精準交期。
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 text-[11px] text-cyan-300 font-mono flex items-center gap-1">
+            <span>全鈦科技技術協作</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- S2 -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group reveal-item">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">組織碳盤查與碳足跡</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              輔導導入 ISO 14064-1/2/3 組織溫室氣體盤查與 ISO 14067 產品碳足跡，協助建立標準化資料流以因應供應鏈查證。
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 text-[11px] text-emerald-300 font-mono flex items-center gap-1">
+            <span>ISO 認證主導查證標準</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- S3 -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 flex flex-col justify-between group reveal-item">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">永續報告書與揭露</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              依循 GRI 標準與 AA1000 原則，陪伴編製高可信度 ESG 永續報告書，對應利害關係人與國際查證標準要求。
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 text-[11px] text-teal-300 font-mono flex items-center gap-1">
+            <span>AA1000 查證師講師級指導</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- S4 -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between group reveal-item">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-users-viewfinder"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">企業內訓與淨零人才</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              政府補助輔導、企業淨零內訓、iPAS 淨零碳規劃師考照培訓及 AI 輔助減碳工具教學，建立組織內部可延續的運作機制。
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 text-[11px] text-amber-300 font-mono flex items-center gap-1">
+            <span>政府補助輔導 ‧ 實戰教學</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="solutions" aria-labelledby="solutions-title" class="py-24 relative border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-item">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+          CORE PRODUCTS & SOLUTIONS
+        </span>
+        <h2 id="solutions-title" class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">
+          核心產品與技術解決方案
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+        <article class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-file-shield" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 leading-relaxed">永續報告書輔導/查證</h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            提供企業陪伴式輔導永續報告書以及企業永續報告書AA1000查證
+          </p>
+        </article>
+
+        <article class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-teal-500/50 transition-all duration-300 group reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 leading-relaxed">GHG Protocol輔導/查證</h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            提供企業陪伴式Protocol碳盤查以及GHG Protocol查證
+          </p>
+        </article>
+
+        <article class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-cubes" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 leading-relaxed">新產品開發/設計/開模/成型</h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            從客戶產品發想到落實可開發設計，最終開模成型出塑膠件及金屬件
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-me" aria-labelledby="contact-me-title" class="py-24 relative border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-item">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">CONTACT ME</span>
+        <h2 id="contact-me-title" class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">聯絡我</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">透過社群與我交流，或填寫需求表單，分享您的合作想法。</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 reveal-item">
+          <h3 class="text-xl font-bold text-white mb-2">在社群找到我</h3>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6">選擇您習慣的平台，開啟交流與合作。</p>
+          <div class="grid grid-cols-2 gap-4">
+            <a href="https://line.me/ti/p/SiihDjRof_" target="_blank" rel="noopener noreferrer" aria-label="LINE（另開新分頁）" class="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-green-500/60 hover:bg-green-500/10 hover:-translate-y-1 motion-reduce:transform-none transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-400">
+              <i class="fa-brands fa-line text-4xl text-green-400" aria-hidden="true"></i>
+              <span class="text-sm font-semibold text-slate-200 group-hover:text-white">LINE</span>
+            </a>
+            <a href="https://www.facebook.com/woodywu21" target="_blank" rel="noopener noreferrer" aria-label="Facebook（另開新分頁）" class="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-blue-500/60 hover:bg-blue-500/10 hover:-translate-y-1 motion-reduce:transform-none transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400">
+              <i class="fa-brands fa-facebook text-4xl text-blue-400" aria-hidden="true"></i>
+              <span class="text-sm font-semibold text-slate-200 group-hover:text-white">Facebook</span>
+            </a>
+            <a href="https://www.linkedin.com/in/woodywu21/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn（另開新分頁）" class="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-sky-500/60 hover:bg-sky-500/10 hover:-translate-y-1 motion-reduce:transform-none transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">
+              <i class="fa-brands fa-linkedin text-4xl text-sky-400" aria-hidden="true"></i>
+              <span class="text-sm font-semibold text-slate-200 group-hover:text-white">LinkedIn</span>
+            </a>
+            <a href="https://github.com/woodywu21" target="_blank" rel="noopener noreferrer" aria-label="GitHub（另開新分頁）" class="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-400/60 hover:bg-slate-700/30 hover:-translate-y-1 motion-reduce:transform-none transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-300">
+              <i class="fa-brands fa-github text-4xl text-slate-200" aria-hidden="true"></i>
+              <span class="text-sm font-semibold text-slate-200 group-hover:text-white">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 flex flex-col items-start justify-center reveal-item">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">填寫需求表單</h3>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">無論是永續輔導、碳盤查查證，或產品開發與製造合作，歡迎透過 Google 表單告訴我您的需求，讓我們更聚焦地討論下一步。</p>
+          <a href="https://forms.gle/ND6kEL1NsWnzv5fe8" target="_blank" rel="noopener noreferrer" aria-label="填寫需求表單（Google 表單，另開新分頁）" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-sm sm:text-base hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/20 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400">
+            填寫需求表單 <i class="fa-solid fa-arrow-up-right-from-square text-sm" aria-hidden="true"></i>
+          </a>
+          <p class="text-xs text-slate-500 mt-4">點擊後將於新分頁開啟 Google 表單。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 relative bg-slate-950/80 border-t border-slate-800">
+    <!-- Ambient Glow behind CTA -->
+    <div class="absolute bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-emerald-500/15 via-cyan-500/15 to-transparent rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="glass-panel rounded-3xl p-8 sm:p-14 border border-slate-700/80 shadow-2xl text-center relative overflow-hidden">
+        
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+            <i class="fa-regular fa-clock"></i> 線上一對一專業會談預約
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            讓專業協作，成為企業成長動能
+          </h2>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            無論您正面臨 <span class="text-cyan-300 font-medium">精密塑膠開發與加工試產瓶頸</span>，或是正在著手準備 <span class="text-emerald-300 font-medium">溫室氣體盤查、碳足跡、永續報告書及政府補助輔導</span>，歡迎立即預約 1-on-1 線上交流時間。
+          </p>
+
+          <!-- Primary CTA Button with required features -->
+          <div class="pt-4 flex justify-center">
+            <a href="https://calendar.app.google/DVue8NMERisdLjD86" target="_blank" rel="noopener noreferrer" class="cta-dynamic-btn-pill inline-block group">
+              <div class="px-8 py-4 rounded-full bg-gray-900/90 text-base sm:text-lg font-bold tracking-wide flex items-center justify-center gap-3 transition-all min-w-[280px]">
+                <!-- Default state -->
+                <span class="cta-label-default text-white">
+                  <i class="fa-solid fa-calendar-check text-emerald-400 text-xl mr-2"></i>
+                  立即前往 Google 行事曆預約
+                </span>
+                <!-- Hover state -->
+                <span class="cta-label-hover text-emerald-300">
+                  <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping mr-2"></span>
+                  Status: Ready to Connect
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Direct Links and Info -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 border-t border-slate-800 text-left text-xs sm:text-sm text-slate-400">
+            <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800/80 flex items-start gap-3">
+              <i class="fa-solid fa-globe text-cyan-400 text-base mt-0.5"></i>
+              <div>
+                <p class="font-semibold text-white">全鈦科技官方網站</p>
+                <a href="https://www.chtai.com.tw" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">www.chtai.com.tw</a>
+                <p class="text-slate-500 text-xs mt-1">精密加工 ‧ 平板 Lens ‧ 模具開發</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800/80 flex items-start gap-3">
+              <i class="fa-solid fa-leaf text-emerald-400 text-base mt-0.5"></i>
+              <div>
+                <p class="font-semibold text-white">曜嶼永續 / 艾恩永續中心</p>
+                <a href="https://www.anesg.com" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">www.anesg.com</a>
+                <p class="text-slate-500 text-xs mt-1">永續報告書 ‧ 溫室氣體盤查 ‧ 內訓賦能</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-slate-900 bg-[#070A11] text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-300">吳秉峰 Woody</span>
+        <span>‧ 賦能企業，改變茁壯</span>
+      </div>
+      <div>
+        <p>© 2026 Woody Wu. All rights reserved. 全鈦科技 & 曜嶼永續</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PHOTO_STORAGE_KEY = 'woody_profile_photo_saved';
+    const PRIMARY_PHOTO_URL = 'https://drive.google.com/thumbnail?id=1mnprnCNe83R4A2tLp8SHKXCv746noC8P&sz=w1000';
+    const FALLBACK_PHOTO_URLS = [
+      'https://lh3.googleusercontent.com/d/1mnprnCNe83R4A2tLp8SHKXCv746noC8P=w1000',
+      'https://drive.google.com/uc?export=view&id=1mnprnCNe83R4A2tLp8SHKXCv746noC8P'
+    ];
+    let fallbackIndex = 0;
+
+    // Apply the saved photo immediately on script execution
+    function applySavedPhoto() {
+      try {
+        const savedPhoto = localStorage.getItem(PHOTO_STORAGE_KEY) || sessionStorage.getItem(PHOTO_STORAGE_KEY);
+        const profileImg = document.getElementById('profile-img');
+        const resetBtn = document.getElementById('btn-reset-photo');
+
+        if (savedPhoto && profileImg) {
+          profileImg.src = savedPhoto;
+          if (resetBtn) resetBtn.classList.remove('hidden');
+          return true;
+        }
+      } catch (err) {
+        console.warn('Unable to read cached photo from storage:', err);
+      }
+      return false;
+    }
+
+    // Save image data to persistent storage and update image element
+    function saveAndDisplayPhoto(imageSrc) {
+      const profileImg = document.getElementById('profile-img');
+      const resetBtn = document.getElementById('btn-reset-photo');
+
+      if (profileImg) {
+        profileImg.src = imageSrc;
+      }
+
+      try {
+        localStorage.setItem(PHOTO_STORAGE_KEY, imageSrc);
+      } catch (e) {
+        try {
+          sessionStorage.setItem(PHOTO_STORAGE_KEY, imageSrc);
+        } catch (innerErr) {
+          console.warn('Storage quota reached, photo shown in current session only.');
+        }
+      }
+
+      if (resetBtn) {
+        resetBtn.classList.remove('hidden');
+      }
+    }
+
+    // Handle user selecting an image file directly
+    function handleUserPhotoUpload(event) {
+      const file = event.target.files && event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          saveAndDisplayPhoto(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Allow user to enter an online image URL
+    function promptPhotoUrl() {
+      const modal = document.createElement('div');
+      modal.className = 'fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4';
+      modal.innerHTML = `
+        <div class="glass-panel p-6 rounded-2xl border border-slate-700 max-w-md w-full shadow-2xl">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-link text-emerald-400"></i> 設定個人形象照片網址
+          </h3>
+          <p class="text-xs text-slate-400 mb-4">貼上您放在雲端、社群或網站上的圖片連結：</p>
+          <input type="url" id="custom-photo-url-input" placeholder="https://example.com/woody.jpg" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500 mb-4" />
+          <div class="flex justify-end gap-3">
+            <button id="modal-cancel" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold">取消</button>
+            <button id="modal-confirm" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs shadow-lg shadow-emerald-500/20">儲存並套用</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      const input = modal.querySelector('#custom-photo-url-input');
+      const cancelBtn = modal.querySelector('#modal-cancel');
+      const confirmBtn = modal.querySelector('#modal-confirm');
+
+      input.focus();
+
+      cancelBtn.onclick = () => modal.remove();
+      confirmBtn.onclick = () => {
+        const url = input.value.trim();
+        if (url) {
+          saveAndDisplayPhoto(url);
+        }
+        modal.remove();
+      };
+    }
+
+    // Reset back to original default file
+    function resetDefaultPhoto() {
+      localStorage.removeItem(PHOTO_STORAGE_KEY);
+      sessionStorage.removeItem(PHOTO_STORAGE_KEY);
+      const profileImg = document.getElementById('profile-img');
+      const resetBtn = document.getElementById('btn-reset-photo');
+      if (profileImg) {
+        fallbackIndex = 0;
+        profileImg.src = PRIMARY_PHOTO_URL;
+      }
+      if (resetBtn) {
+        resetBtn.classList.add('hidden');
+      }
+    }
+
+    // Handle Profile Image Fallback if image fails to load
+    function handleImageError(img) {
+      if (applySavedPhoto()) return;
+
+      // Try alternate Google CDN endpoints before vector placeholder
+      if (fallbackIndex < FALLBACK_PHOTO_URLS.length) {
+        img.src = FALLBACK_PHOTO_URLS[fallbackIndex];
+        fallbackIndex++;
+        return;
+      }
+
+      // Professional vector silhouette avatar placeholder if all external links fail
+      img.onerror = null;
+      img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 560' width='100%' height='100%'><defs><linearGradient id='bgGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23111827'/><stop offset='50%' stop-color='%230b1329'/><stop offset='100%' stop-color='%23052e2b'/></linearGradient><linearGradient id='suitGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%231e293b'/><stop offset='100%' stop-color='%230f172a'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23bgGrad)'/><circle cx='250' cy='180' r='90' fill='%23cbd5e1'/><path d='M100 500 C120 340 380 340 400 500 Z' fill='url(%23suitGrad)'/><path d='M220 270 L250 330 L280 270 Z' fill='%23ffffff'/><polygon points='245,295 255,295 258,420 242,420' fill='%230f172a'/><text x='250' y='525' font-family='sans-serif' font-size='15' font-weight='600' fill='%2310b981' text-anchor='middle'>點擊右上角「更換照片」選取 Woody.jpg</text></svg>";
+    }
+
+    // Initialize photo check on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      applySavedPhoto();
+    });
+
+    // Smooth scroll for nav items & mobile menu behavior
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      const navbar = document.getElementById('navbar');
+
+      // Toggle mobile menu
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          if (isHidden) {
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          } else {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+          }
+        });
+
+        // Close on link click
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          });
+        });
+      }
+
+      // Navbar blur background on scroll
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('glass-nav');
+        } else {
+          navbar.classList.remove('glass-nav');
+        }
+      });
+
+      // Reveal on scroll (Intersection Observer)
+      const revealItems = document.querySelectorAll('.reveal-item');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealItems.forEach(item => observer.observe(item));
+      } else {
+        // Fallback
+        revealItems.forEach(item => item.classList.add('active'));
+      }
+    });
+  </script>
+</body>
+</html>
