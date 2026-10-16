@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /backups/
+Disallow: /Hike/
+Disallow: /artifacts/
+
+# Add a Sitemap directive after the production domain and sitemap are available.
